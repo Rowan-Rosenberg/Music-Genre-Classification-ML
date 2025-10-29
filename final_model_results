@@ -1,0 +1,227 @@
+============================================================
+EVALUATING MODEL ON TEST DATA
+============================================================
+
+Using device: cpu
+Running predictions...
+
+============================================================
+MODEL EVALUATION METRICS
+============================================================
+
+Overall Accuracy: 0.5855 (58.55%)
+
+------------------------------------------------------------
+DETAILED CLASSIFICATION REPORT
+------------------------------------------------------------
+                     precision    recall  f1-score   support
+
+              Blues     0.0000    0.0000    0.0000        13
+          Classical     0.9250    0.4253    0.5827        87
+            Country     0.0000    0.0000    0.0000        18
+     Easy Listening     0.0000    0.0000    0.0000         6
+         Electronic     0.5332    0.7569    0.6256       839
+       Experimental     0.5490    0.6452    0.5932      1085
+               Folk     0.2841    0.0836    0.1292       299
+            Hip-Hop     0.8856    0.5511    0.6794       323
+       Instrumental     0.3750    0.0194    0.0369       309
+      International     1.0000    0.1094    0.1972       128
+               Jazz     1.0000    0.1064    0.1923        47
+Old-Time / Historic     0.9792    0.8545    0.9126        55
+                Pop     0.0943    0.0245    0.0389       204
+               Rock     0.6176    0.8518    0.7160      1464
+           Soul-RnB     0.0000    0.0000    0.0000        43
+             Spoken     0.0000    0.0000    0.0000        31
+
+           accuracy                         0.5855      4951
+          macro avg     0.4527    0.2768    0.2940      4951
+       weighted avg     0.5580    0.5855    0.5311      4951
+
+
+------------------------------------------------------------
+PER-CLASS PERFORMANCE SUMMARY
+------------------------------------------------------------
+Genre           Precision    Recall       F1-Score     Support
+------------------------------------------------------------
+Blues           0.0000       0.0000       0.0000       13
+Classical       0.9250       0.4253       0.5827       87
+Country         0.0000       0.0000       0.0000       18
+Easy Listening  0.0000       0.0000       0.0000       6
+Electronic      0.5332       0.7569       0.6256       839
+Experimental    0.5490       0.6452       0.5932       1085
+Folk            0.2841       0.0836       0.1292       299
+Hip-Hop         0.8856       0.5511       0.6794       323
+Instrumental    0.3750       0.0194       0.0369       309
+International   1.0000       0.1094       0.1972       128
+Jazz            1.0000       0.1064       0.1923       47
+Old-Time / Historic 0.9792       0.8545       0.9126       55
+Pop             0.0943       0.0245       0.0389       204
+Rock            0.6176       0.8518       0.7160       1464
+Soul-RnB        0.0000       0.0000       0.0000       43
+Spoken          0.0000       0.0000       0.0000       31
+------------------------------------------------------------
+Macro Avg       0.4527       0.2768       0.2940
+Weighted Avg    0.5580       0.5855       0.5311
+
+============================================================
+CONFUSION MATRIX
+============================================================
+
+Actual // Predicted Blues   Classi  Countr  Easy L  Electr  Experi  Folk    Hip-Ho  Instru  Intern  Jazz    Old-Ti  Pop     Rock    Soul-R  Spoken
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Blues               0       0       0       0       1       6       0       0       0       0       0       0       0       6       0       0 
+
+Classical           0       37      0       0       4       27      5       0       2       0       0       0       2       10      0       0 
+
+Country             0       0       0       0       1       0       4       0       0       0       0       0       3       10      0       0 
+
+Easy Listening      0       0       0       0       5       1       0       0       0       0       0       0       0       0       0       0 
+
+Electronic          0       0       0       0       635     105     1       12      4       0       0       0       8       73      0       1 
+
+Experimental        0       0       0       0       157     700     4       2       3       0       0       0       11      208     0       0 
+
+Folk                0       0       0       0       23      113     25      0       1       0       0       0       4       133     0       0 
+
+Hip-Hop             0       0       0       0       86      20      0       178     0       0       0       0       2       37      0       0 
+
+Instrumental        0       2       0       0       74      86      21      0       6       0       0       1       7       112     0       0 
+
+International       0       1       0       0       31      20      9       1       0       14      0       0       2       50      0       0 
+
+Jazz                0       0       0       0       2       24      0       0       0       0       5       0       0       16      0       0 
+
+Old-Time / Historic 0       0       0       0       0       6       0       0       0       0       0       47      0       2       0       0 
+
+Pop                 0       0       0       0       79      29      6       3       0       0       0       0       5       82      0       0 
+
+Rock                0       0       0       0       81      111     12      5       0       0       0       0       8       1247    0       0 
+
+Soul-RnB            0       0       0       0       11      5       0       0       0       0       0       0       0       27      0       0 
+
+Spoken              0       0       0       0       1       22      1       0       0       0       0       0       1       6       0       0 
+
+
+============================================================
+SAMPLE PREDICTIONS
+============================================================
+
+Showing 20 random predictions:
+------------------------------------------------------------
+  ✗ [WRONG  ] Actual: Instrumental | Predicted: Folk         | Confidence: 0.8433
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.9533
+  ✗ [WRONG  ] Actual: Folk         | Predicted: Experimental | Confidence: 0.9917
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.9997
+  ✗ [WRONG  ] Actual: International | Predicted: Electronic   | Confidence: 0.3797
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.9999
+  ✗ [WRONG  ] Actual: Instrumental | Predicted: Rock         | Confidence: 0.9917
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 1.0000
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.9985
+  ✗ [WRONG  ] Actual: Hip-Hop      | Predicted: Rock         | Confidence: 0.3919
+  ✓ [CORRECT] Actual: Electronic   | Predicted: Electronic   | Confidence: 0.9997
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.6350
+  ✗ [WRONG  ] Actual: Pop          | Predicted: Rock         | Confidence: 0.9833
+  ✗ [WRONG  ] Actual: Instrumental | Predicted: Rock         | Confidence: 1.0000
+  ✓ [CORRECT] Actual: Electronic   | Predicted: Electronic   | Confidence: 0.8020
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.9999
+  ✓ [CORRECT] Actual: Electronic   | Predicted: Electronic   | Confidence: 0.9911
+  ✗ [WRONG  ] Actual: Rock         | Predicted: Experimental | Confidence: 0.6072
+  ✓ [CORRECT] Actual: Rock         | Predicted: Rock         | Confidence: 0.9938
+  ✗ [WRONG  ] Actual: Folk         | Predicted: Experimental | Confidence: 0.9999
+------------------------------------------------------------
+In sample: 11 correct, 9 incorrect
+Sample accuracy: 0.5500 (55.00%)
+
+============================================================
+PREDICTION CONFIDENCE ANALYSIS
+============================================================
+
+All Predictions:
+  Mean confidence: 0.8834
+  Median confidence: 0.9772
+  Min confidence: 0.2414
+  Max confidence: 1.0000
+  Std deviation: 0.1650
+
+Correct Predictions:
+  Count: 2899
+  Mean confidence: 0.9370
+  Median confidence: 0.9973
+  Min confidence: 0.3009
+  Max confidence: 1.0000
+
+Incorrect Predictions:
+  Count: 2052
+  Mean confidence: 0.8076
+  Median confidence: 0.8630
+  Min confidence: 0.2414
+  Max confidence: 1.0000
+
+Predictions by Confidence Level:
+  Confidence >= 0.5: 4779 predictions (96.53%), Accuracy: 0.5980
+  Confidence >= 0.6: 4452 predictions (89.92%), Accuracy: 0.6224
+  Confidence >= 0.7: 4126 predictions (83.34%), Accuracy: 0.6498
+  Confidence >= 0.8: 3755 predictions (75.84%), Accuracy: 0.6820
+  Confidence >= 0.9: 3246 predictions (65.56%), Accuracy: 0.7230
+
+============================================================
+TEST COMPLETE - SUMMARY
+============================================================
+
+Test Set Performance:
+  Total samples tested: 4951
+  Accuracy: 0.5855 (58.55%)
+  Macro F1-Score: 0.2940
+  Weighted F1-Score: 0.5311
+
+
+=============================================================
+  BASELINE RESULTS
+=============================================================
+
+  Overall Accuracy: 0.6205 (62.05%)
+
+Macro Averages:
+  Macro Average Precision: 0.4542
+  Macro Average Recall:    0.4063
+  Macro Average F1-Score:  0.4147
+
+Weighted Averages:
+  Weighted Average Precision: 0.5873
+  Weighted Average Recall:    0.6205
+  Weighted Average F1-Score:  0.5941
+
+--------------------------------------------------------------------------------
+PER-CLASS PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+Genre                Precision    Recall       F1-Score     No. Tracks
+--------------------------------------------------------------------------------
+Blues                0.0000       0.0000       0.0000       13
+Classical            0.7654       0.7126       0.7381       87
+Country              0.0000       0.0000       0.0000       18
+Easy Listening       0.0000       0.0000       0.0000       0
+Electronic           0.6272       0.6976       0.6605       820
+Experimental         0.5984       0.6538       0.6249       1037
+Folk                 0.2920       0.2598       0.2750       281
+Hip-Hop              0.7167       0.7581       0.7368       277
+Instrumental         0.4845       0.1536       0.2333       306
+International        0.4886       0.3440       0.4038       125
+Jazz                 0.5882       0.4255       0.4938       47
+Old-Time / Historic  0.8814       0.9455       0.9123       55
+Pop                  0.0779       0.0324       0.0458       185
+Rock                 0.6949       0.8303       0.7566       1385
+Soul-RnB             0.2500       0.0238       0.0435       42
+Spoken               0.3478       0.2581       0.2963       31
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+PREDICTION CONFIDENCE ANALYSIS
+--------------------------------------------------------------------------------
+Threshold       No. Predictions      Percentage      Accuracy
+--------------------------------------------------------------------------------
+0.5             3364                 71.44          % 0.7286
+0.6             2717                 57.70          % 0.7810
+0.7             2175                 46.19          % 0.8267
+0.8             1574                 33.43          % 0.8780      
+0.9             856                  18.18          % 0.9264
+--------------------------------------------------------------------------------

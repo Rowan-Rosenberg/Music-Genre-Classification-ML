@@ -26,10 +26,10 @@ from data_loader import FMADataLoader
 # ============================================================================
 
 CONFIG = {
-    'model_path': 'best_model.pth',           # Path to your trained model
+    'model_path': 'best_regularized_model.pth',           # Path to your trained model
     'metadata_path': '../fma_metadata',        # Path to FMA metadata directory
     'test_subset': 'large',                   # Dataset subset: 'small', 'medium', or 'large'
-    'num_test_samples': 100000,                  # Number of samples to test
+    'num_test_samples': 106574,                  # Number of samples to test
     'batch_size': 32,                          # Batch size for evaluation
     'num_sample_predictions': 20,              # Number of sample predictions to display
 }
@@ -49,9 +49,9 @@ class MusicGenreClassifier(nn.Module):
         
         self.net = nn.Sequential(
             nn.Linear(self.input_size, self.hidden_size),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Linear(self.hidden_size, self.hidden_size),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Linear(self.hidden_size, self.num_classes)
         )
     
@@ -342,25 +342,28 @@ if __name__ == "__main__":
     # Print model summary
     print_model_summary(loaded_model, loaded_data)
     
-    # Load test data
+    # Load test data using train/test split
     print("\n" + "=" * 60)
     print("LOADING TEST DATA")
     print("=" * 60)
     
     loader = FMADataLoader("../fma_metadata")
 
-    print(f"\nLoading test tracks from {CONFIG['test_subset']} subset...")
-    test_data = loader.get_first_n_tracks(
+    print(f"\nLoading data from {CONFIG['test_subset']} subset and extracting test split...")
+    split_data = loader.get_train_test_split(
         n=CONFIG['num_test_samples'], 
         subset=CONFIG['test_subset'],
         feature_columns=None, 
         multi_label=False, 
-        include_echonest=False
+        include_echonest=False,
+        standardize=False,  # We'll handle standardization later
+        shuffle_data=True
     )
     
-    X_test = test_data['X']
-    y_test = test_data['y']
-    test_genre_names = test_data['genre_names']
+    # Use only the test split
+    X_test = split_data['X_test']
+    y_test = split_data['y_test']
+    test_genre_names = split_data['genre_names']
     
     print(f"\nTest Data Loaded:")
     print(f"  Number of samples: {X_test.shape[0]}")
